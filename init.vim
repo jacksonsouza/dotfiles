@@ -39,10 +39,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug '~/my-prototype-plugin'
 
 Plug 'ntpeters/vim-better-whitespace'
-" TODO: ctags
 
 call plug#end()
-
 
 let g:pymode_options_max_line_length = 123
 let g:pymode_options_colorcolumn = 0
@@ -83,29 +81,11 @@ set virtualedit=onemore
 set cursorline
 set timeout timeoutlen=300 ttimeoutlen=300
 
-" Key Mappings "
-:imap jj <Esc>
-
-
-" Console log from insert mode; Puts focus inside parentheses
-
-
 set t_Co=256
 
 syntax on
 colorscheme gruvbox
-set background=dark    " Setting dark mode
-
-"hi Normal ctermbg=none
-" colorscheme xian
-" colorscheme badwolf
-" colorscheme peachpuff
-" colorscheme marklar
-" colorscheme darkspectrum
-" colorscheme default
-" colorscheme random
-" colo nofrils-dark
-
+set background=dark
 
 " Control P "
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -116,7 +96,6 @@ let g:ctrlp_open_multiple_files = '<c-t>'
 set modeline
 set tabstop=2 softtabstop=2 expandtab shiftwidth=2
 set smartindent
-
 
 " Different directory for swap files
 set backupdir=./.backup,.,/tmp
@@ -129,56 +108,49 @@ set nowrap
 
 " Always show statusline
 set laststatus=2
+
 " Backspace Legit
-
 set backspace=2
-
-command WQ wq
-command Wq wq
-command W w
-command Q q
-command Edit edit
 
 set title
 
-" To piss others off
- nnoremap <left> <nop>
- nnoremap <right> <nop>
- nnoremap <up> <nop>
- nnoremap <down> <nop>
 
- inoremap <left> <nop>
- inoremap <right> <nop>
- inoremap <up> <nop>
- inoremap <down> <nop>
+"Key Mappings
+"
 
+inoremap jj <Esc>
+nnoremap <Space> i
+nnoremap ; :
+
+"Disable arrow keys
+map <left> <nop>
+map <right> <nop>
+map <up> <nop>
+map <down> <nop>
+
+"Normal mode navigation (WASD mirror, t)
+nnoremap j h
+nnoremap k j
+nnoremap i k
+
+"Insert mode breakout navigation
 inoremap <C-l> <Esc>l
-inoremap <C-j> <Esc>j
-inoremap <C-k> <Esc>k
-inoremap <C-h> <Esc>h
+inoremap <C-k> <Esc>j
+inoremap <C-i> <Esc>k
+inoremap <C-j> <Esc>h
 
 nnoremap <C-l> l
-nnoremap <C-j> j
-nnoremap <C-k> k
-nnoremap <C-h> h
-
+nnoremap <C-k> j
+nnoremap <C-i> k
+nnoremap <C-j> h
 
 
 set fileformat=unix
-
-nnoremap H 00
-nnoremap L $
-
-noremap <c-u> 25k
-noremap <c-d> 25j
-
-inoremap <a-l> <Esc>
 
 set undolevels=20
 set noerrorbells
 set noswapfile
 set nobackup
-nnoremap ; :
 
 set mouse-=a
 set wrap
