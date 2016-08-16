@@ -1,0 +1,4 @@
+Keyboard
+-Key Repeat:Fast
+-Delay Until Repeat:Short
+-Caps Lock to Control
