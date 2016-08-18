@@ -29,6 +29,6 @@ nnoremap <C-k> j
 nnoremap <C-i> k
 nnoremap <C-j> h
 
-"For supertab support, conflict with c-i (navigation)
+"For supertab support, conflict with c-i (navigation), control-space to use supertab
 exe 'set t_kB=' . nr2char(27) . '[Z'
-imap <Tab> <S-Tab>
+imap <NUL> <S-Tab>
