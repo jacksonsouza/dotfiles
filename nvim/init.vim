@@ -1,5 +1,4 @@
 call plug#begin('~/.config/nvim/plugged')
-
 Plug 'ervandew/supertab'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'kien/ctrlp.vim'
@@ -12,6 +11,8 @@ Plug 'elzr/vim-json'
 Plug 'nono/vim-handlebars'
 call plug#end()
 
+"Key mappings located in /after/plugin to override plugin hijacking
+              
 "Ignore for ctrl-p
 set wildignore+=*/node_modules/**
 set wildignore+=*/dev/**
@@ -65,42 +66,6 @@ set laststatus=2
 " Backspace Legit
 set backspace=2
 set title
-
-
-""""""""""""""""""""
-""""KEY MAPPINGS""""
-""""""""""""""""""""
-
-inoremap jj <Esc>
-vnoremap <Space> <Esc>
-nnoremap <Space> i
-nnoremap ; :
-
-"Disable arrow keys
-map <left> <nop>
-map <right> <nop>
-map <up> <nop>
-map <down> <nop>
-
-"Regular navigation (WASD mirror, t)
-nnoremap j h
-nnoremap k j
-nnoremap i k
-
-vnoremap j h
-vnoremap k j
-vnoremap i k
-
-"Breakout navigation
-inoremap <c-l> <c-o>l
-inoremap <c-k> <c-o>j
-inoremap <c-i> <c-o>k
-inoremap <c-j> <c-o>h
-
-nnoremap <C-l> l
-nnoremap <C-k> j
-nnoremap <C-i> k
-nnoremap <C-j> h
 
 set fileformat=unix
 
