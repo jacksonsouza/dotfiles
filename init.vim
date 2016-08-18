@@ -10,7 +10,6 @@ Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'elzr/vim-json'
 Plug 'nono/vim-handlebars'
-
 call plug#end()
 
 "Ignore for ctrl-p
@@ -93,10 +92,10 @@ vnoremap k j
 vnoremap i k
 
 "Breakout navigation
-inoremap <C-l> <Esc>l
-inoremap <C-k> <Esc>j
-inoremap <C-i> <Esc>k
-inoremap <C-j> <Esc>h
+inoremap <c-l> <c-o>l
+inoremap <c-k> <c-o>j
+inoremap <c-i> <c-o>k
+inoremap <c-j> <c-o>h
 
 nnoremap <C-l> l
 nnoremap <C-k> j
