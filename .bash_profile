@@ -1,6 +1,6 @@
 alias ll="ls -la"
 alias pys="python -m SimpleHTTPServer"
-alias open="sublime"
+alias subl="sublime"
 alias vim="nvim"
 
 basicgitflow() {
@@ -39,7 +39,3 @@ if [ -n "$SSH_CLIENT" ]; then
 else
     PS1="\nlocal \w -> "
 fi
-
-
-# added by Anaconda2 2.4.1 installer
-export PATH="/home/jacksonsouza/anaconda2/bin:$PATH"
