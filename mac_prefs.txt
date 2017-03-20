@@ -2,3 +2,4 @@ Keyboard
 -Key Repeat:Fast
 -Delay Until Repeat:Short
 -Caps Lock to Control
+-Download Karabiner / set "Control_L+IKJL to Up/Down/Left/Right" arrows
