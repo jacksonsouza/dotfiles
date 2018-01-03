@@ -1,7 +1,9 @@
-alias ll="ls -la"
+alias ls="ls -la"
 alias pys="python -m SimpleHTTPServer"
-alias subl="sublime"
 alias vim="nvim"
+alias psqlstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias psqlstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias vimconfig="cd ~/.config/nvim/"
 
 basicgitflow() {
     git add .
@@ -16,11 +18,12 @@ basicgitflowtwo() {
 }
 alias gpul=basicgitflowtwo
 
-killprocess(){
-    sudo kill -9 $(sudo lsof -t -i:$1)
-    echo "Process on port $1 terminated!" 
+grepandkill(){ 
+    PID=`ps | grep "$1" | head -1 | awk '{print substr($0,0,5)}'`
+    kill -9 $PID
+    echo "Process $PID found with string '$1' terminated!" 
 }
-alias kpro=killprocess
+alias gkill=grepandkill
 
 findinfiles(){
     grep -rni ./ --color=always -e "$1" | awk -F: '{print $1" at line "$2"\n   "$3"\n--"}'
@@ -39,3 +42,5 @@ if [ -n "$SSH_CLIENT" ]; then
 else
     PS1="\nlocal \w -> "
 fi
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

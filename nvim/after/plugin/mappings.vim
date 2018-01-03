@@ -1,7 +1,11 @@
 inoremap jj <Esc>
-vnoremap <Space> <Esc>
+vnoremap jj <Esc>
+
 nnoremap <Space> i
+vnoremap <Space> <S-i>
+
 nnoremap ; :
+let mapleader = "m"
 
 "Disable arrow keys
 map <left> <nop>
@@ -32,3 +36,8 @@ nnoremap <C-j> h
 "For supertab support, conflict with c-i (navigation), control-space to use supertab
 exe 'set t_kB=' . nr2char(27) . '[Z'
 imap <NUL> <S-Tab>
+
+"Remove search highlight
+nnoremap <leader><CR> :nohlsearch<cr>
+
+map <Leader>cc <Plug>NERDCommenterToggle('n', 'Toggle')<Cr>
