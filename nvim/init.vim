@@ -1,31 +1,29 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'ervandew/supertab'
-Plug 'kien/ctrlp.vim'
-Plug 'Raimondi/delimitMate'
-Plug 'bling/vim-airline'
+Plug 'ervandew/supertab'                "String auto completion
+Plug 'Raimondi/delimitMate'             "Bracket auto completion
+Plug 'scrooloose/nerdcommenter'         "Smarter commenting
+Plug 'junegunn/fzf'                     "Fuzzy finding
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'              "File directory
+Plug 'prettier/vim-prettier'            "File formatting
+    
+Plug 'bling/vim-airline'                "Smarter bottom bar
 Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-endwise'
-Plug 'scrooloose/nerdcommenter'
 
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
-
 Plug 'moll/vim-node'
 Plug 'ahayman/vim-nodejs-complete'
-
+Plug 'mxw/vim-jsx'
+Plug 'slim-template/vim-slim'            "HTML Slim templates
 Plug 'elzr/vim-json'
-Plug 'nono/vim-handlebars'
+Plug 'nono/vim-handlebars'               "HTML Handlebars templates
 call plug#end()
 
 "Key mappings located in /after/plugin to override plugin hijacking
 filetype plugin on
-
 filetype on           
 filetype indent on   
-
-"Ignore for ctrl-p
-set wildignore+=*/node_modules/**
-set wildignore+=*/dev/**
 
 "Remove trailing highlighted spaces
 autocmd BufWritePre *.js :%s/\s\+$//e
@@ -34,15 +32,12 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.c :%s/\s\+$//e
 autocmd BufWritePre *.sh :%s/\s\+$//e
 
-" synchronize vim's cwd with the cwd of the current buffer
+let g:jsx_ext_required = 0
+
 set autochdir
-" ignore case in search patterns
 set ignorecase
-" unset &ignorecase if the search pattern contains upper case characters
 set smartcase
-" use proper syntax highlighting for shell scripts
 let g:is_posix = 1
-" enable true color support
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set virtualedit=onemore
@@ -54,23 +49,17 @@ syntax on
 colorscheme gruvbox
 set background=dark
 
-" Control P "
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_open_multiple_files = '<c-t>'
-
 set modeline
 set tabstop=2 softtabstop=2 expandtab shiftwidth=2
 set smartindent
 
 set clipboard=unnamed
 
-" Different directory for swap files
-set backupdir=./.backup,.,/tmp
-set directory=.,./.backup,/tmp
-
 " Line numbers
 set nu
 set nowrap 
+set number                     " Show current line number
+set relativenumber             " Show relative line numbers
 
 " Always show statusline
 set laststatus=2
